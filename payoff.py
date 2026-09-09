@@ -33,3 +33,19 @@ if S > K:
         print("The operation is OTM")
 '''
 
+def payoff_spread(S, K1, K2):
+    '''
+    Calculates the payoff of a spread option.
+    '''
+    pierna_larga = payoff_call(S, K1)
+    pierna_corta = payoff_call(S, K2)
+    return (pierna_larga-pierna_corta)
+
+resultadoA = payoff_spread(120, 100, 110)
+resultadoB = payoff_spread(95, 100, 110)
+print(resultadoA)
+print(resultadoB)
+assert resultadoA == 10
+assert resultadoB == 0
+
+
